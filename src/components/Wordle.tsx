@@ -6,15 +6,20 @@ type Props = {
 };
 
 export default function Wordle({ solution }: Props) {
-  const { currentGuess, handleKeyup } = useWordle(solution);
+  const { currentGuess, handleKeyup, guesses, isCorrect, turn } =
+    useWordle(solution);
 
   useEffect(() => {
     window.addEventListener("keyup", handleKeyup);
     return () => window.removeEventListener("keyup", handleKeyup);
   }, [handleKeyup]);
+
+  useEffect(() => {
+    console.log({ guesses, turn, isCorrect });
+  }, [guesses, turn, isCorrect]);
   return (
-    <section>
+    <>
       <p>Current Guess: {currentGuess}</p>
-    </section>
+    </>
   );
 }

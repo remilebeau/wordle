@@ -1,5 +1,3 @@
-import { ColoredLetter } from "./hooks/useWordle";
-import useWordle from "./hooks/useWordle";
 import Wordle from "./components/Wordle";
 import { useState, useEffect } from "react";
 

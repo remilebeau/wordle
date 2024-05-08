@@ -8,7 +8,7 @@ export type ColoredLetter = {
 export default function useWordle(solution: string) {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
-  const [guesses, setGuesses] = useState<ColoredLetter[][]>([]);
+  const [guesses, setGuesses] = useState<ColoredLetter[][]>([...Array(6)]);
   const [history, setHistory] = useState<string[]>([]);
   const [isCorrect, setIsCorrect] = useState(false);
 
@@ -43,8 +43,22 @@ export default function useWordle(solution: string) {
   // add a new guess to the guesses state
   // update the isCorrect state if the guess is correct
   // add one to the turn state
-  const addNewGuess = () => {
-    //  @TODO
+  const addNewGuess = (formattedGuess: ColoredLetter[]) => {
+    if (currentGuess === solution) {
+      setIsCorrect(true);
+    }
+    setGuesses((prevGuesses) => {
+      let newGuesses = [...prevGuesses];
+      newGuesses[turn] = formattedGuess;
+      return newGuesses;
+    });
+    setHistory((prevHistory) => {
+      return [...prevHistory, currentGuess];
+    });
+    setTurn((prevTurn) => {
+      return prevTurn + 1;
+    });
+    setCurrentGuess("");
   };
 
   // handle keyup event and track the current guess
@@ -66,7 +80,7 @@ export default function useWordle(solution: string) {
       currentGuess.length === 5
     ) {
       const formattedGuess = formatGuess();
-      console.log({ formattedGuess });
+      addNewGuess(formattedGuess);
     }
   };
 
