@@ -5,9 +5,11 @@ function App() {
   const [solution, setSolution] = useState("");
 
   const fetchSolution = async () => {
-    const res = await fetch("http://localhost:3500/solutions");
+    const res = await fetch(
+      "https://wordle-backend-od4f.onrender.com/api/solutions"
+    );
     const data = await res.json();
-    setSolution(data[Math.floor(Math.random() * data.length)].word);
+    setSolution(data.word);
   };
 
   useEffect(() => {
