@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useWordle from "../hooks/useWordle";
+import Grid from "./Grid";
 
 type Props = {
   solution: string;
@@ -20,6 +21,7 @@ export default function Wordle({ solution }: Props) {
   return (
     <>
       <p>Current Guess: {currentGuess}</p>
+      <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
     </>
   );
 }
