@@ -72,10 +72,10 @@ export default function useWordle(solution: string) {
     if (key === "Backspace") {
       setCurrentGuess((prevGuess) => prevGuess.slice(0, -1));
     }
-    // only add guess if turn < 5, the guess is not a duplicate, and the guess is 5 letters long
+    // only add guess if turn <= 5, the guess is not a duplicate, and the guess is 5 letters long
     if (
       key === "Enter" &&
-      turn < 5 &&
+      turn <= 5 &&
       !history.includes(currentGuess) &&
       currentGuess.length === 5
     ) {
