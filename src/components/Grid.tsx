@@ -10,9 +10,12 @@ type Props = {
 export default function Grid({ guesses, currentGuess, turn }: Props) {
   return (
     <section id="grid" className="flex flex-col gap-4">
-      {guesses.map((guess, index) => (
-        <Row key={index} guess={guess} />
-      ))}
+      {guesses.map((guess, index) => {
+        if (index === turn) {
+          return <Row key={index} currentGuess={currentGuess} />;
+        }
+        return <Row key={index} guess={guess} />;
+      })}
     </section>
   );
 }
