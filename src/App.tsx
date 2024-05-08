@@ -1,4 +1,4 @@
-import { FormattedGuess, ColoredLetter } from "./hooks/useWordle";
+import { ColoredLetter } from "./hooks/useWordle";
 import useWordle from "./hooks/useWordle";
 import Wordle from "./components/Wordle";
 import { useState, useEffect } from "react";
@@ -17,7 +17,7 @@ function App() {
   }, [setSolution]);
 
   return (
-    <main>
+    <main className="max-w-4xl mx-auto flex flex-col justify-center items-center">
       <h1>Hello World</h1>
       <h2>Solution is {solution}</h2>
       {solution && <Wordle solution={solution} />}
