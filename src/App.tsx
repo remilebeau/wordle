@@ -1,21 +1,18 @@
 import Wordle from "./components/Wordle";
+import solutions from "../data/solutions.ts";
 import { useState, useEffect } from "react";
 
 function App() {
   const [solution, setSolution] = useState("");
 
-  const fetchSolution = async () => {
-    const res = await fetch(
-      "https://wordle-backend-od4f.onrender.com/api/solutions"
-    );
-    const { solution } = await res.json();
-    console.log({ solution });
+  const fetchSolution = () => {
+    const solution = solutions[Math.floor(Math.random() * solutions.length)];
     setSolution(solution);
+    console.log({ solution });
   };
 
   useEffect(() => {
     fetchSolution();
-    console.log({ solution });
   }, [setSolution]);
 
   return (

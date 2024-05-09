@@ -20,7 +20,6 @@ export default function Wordle({ solution }: Props) {
   }, [guesses, turn, isCorrect]);
   return (
     <>
-      <p>Current Guess: {currentGuess}</p>
       <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
     </>
   );
