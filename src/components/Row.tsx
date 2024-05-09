@@ -13,15 +13,18 @@ export default function Row({ guess, currentGuess }: Props) {
   if (guess) {
     return (
       <div id="past-row-container" className="flex flex-row gap-2">
-        {guess.map((letter, index) => (
-          <div
-            key={index}
-            id="past-letter"
-            className={`${letterClasses} bg-${letter.color}-500`}
-          >
-            {letter.key}
-          </div>
-        ))}
+        {guess.map((letter, index) => {
+          const newBgColor = `bg-${letter.color}-500`;
+          return (
+            <div
+              key={index}
+              id="past-letter"
+              className={`${letterClasses} ${newBgColor}`}
+            >
+              {letter.key}
+            </div>
+          );
+        })}
       </div>
     );
   }

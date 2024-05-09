@@ -7,16 +7,12 @@ type Props = {
 };
 
 export default function Wordle({ solution }: Props) {
-  const { currentGuess, handleKeyup, guesses, isCorrect, turn } =
-    useWordle(solution);
+  const { currentGuess, handleKeyup, guesses, turn } = useWordle(solution);
 
   useEffect(() => {
     window.addEventListener("keyup", handleKeyup);
     return () => window.removeEventListener("keyup", handleKeyup);
   }, [handleKeyup]);
 
-  useEffect(() => {
-    console.log({ guesses, turn, isCorrect });
-  }, [guesses, turn, isCorrect]);
   return <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />;
 }
