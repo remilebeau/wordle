@@ -1,5 +1,4 @@
 import { ColoredLetter } from "../hooks/useWordle";
-import { useEffect } from "react";
 
 type Props = {
   guess?: ColoredLetter[];
@@ -7,9 +6,7 @@ type Props = {
   turn: number;
 };
 
-export default function Row({ guess, currentGuess, turn }: Props) {
-  // rerender the row component every time the turn changes
-  useEffect(() => {}, [turn]);
+export default function Row({ guess, currentGuess }: Props) {
   const letterClasses =
     "flex flex-row gap-2 items-center justify-center w-16 h-16 bg-white font-bold text-black text-3xl rounded-md";
 
