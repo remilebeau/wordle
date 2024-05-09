@@ -12,9 +12,9 @@ export default function Grid({ guesses, currentGuess, turn }: Props) {
     <section id="grid" className="flex flex-col gap-4">
       {guesses.map((guess, index) => {
         if (index === turn) {
-          return <Row key={index} currentGuess={currentGuess} />;
+          return <Row key={index} turn={turn} currentGuess={currentGuess} />;
         }
-        return <Row key={index} guess={guess} />;
+        return <Row key={index} turn={turn} guess={guess} />;
       })}
     </section>
   );
