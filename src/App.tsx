@@ -12,8 +12,8 @@ function App() {
     if (!res.ok) {
       setErrMsg("Failed to fetch solution");
     }
-    const data = await res.json();
-    setSolution(data.word);
+    const { solution } = await res.json();
+    setSolution(solution);
   };
 
   useEffect(() => {
