@@ -9,11 +9,13 @@ function App() {
       "https://wordle-backend-od4f.onrender.com/api/solutions"
     );
     const { solution } = await res.json();
+    console.log({ solution });
     setSolution(solution);
   };
 
   useEffect(() => {
     fetchSolution();
+    console.log({ solution });
   }, [setSolution]);
 
   return (
