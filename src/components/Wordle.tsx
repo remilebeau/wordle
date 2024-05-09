@@ -18,9 +18,5 @@ export default function Wordle({ solution }: Props) {
   useEffect(() => {
     console.log({ guesses, turn, isCorrect });
   }, [guesses, turn, isCorrect]);
-  return (
-    <>
-      <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
-    </>
-  );
+  return <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />;
 }
