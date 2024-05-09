@@ -14,7 +14,11 @@ export default function Row({ guess, currentGuess }: Props) {
     return (
       <div id="past-row-container" className="flex flex-row gap-2">
         {guess.map((letter, index) => {
-          const newBgColor = `bg-${letter.color}-500`;
+          const newBgColor = {
+            green: "bg-green-500",
+            yellow: "bg-yellow-500",
+            gray: "bg-gray-500",
+          }[letter.color];
           return (
             <div
               key={index}

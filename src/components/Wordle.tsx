@@ -14,5 +14,12 @@ export default function Wordle({ solution }: Props) {
     return () => window.removeEventListener("keyup", handleKeyup);
   }, [handleKeyup]);
 
-  return <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />;
+  return (
+    <>
+      <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
+      <p className="text-5xl font-bold">
+        {turn > 5 ? `Solution: ${solution}` : ""}
+      </p>
+    </>
+  );
 }
