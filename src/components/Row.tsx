@@ -7,9 +7,6 @@ type Props = {
 };
 
 export default function Row({ guess, currentGuess }: Props) {
-  const letterClasses =
-    "flex flex-row gap-2 items-center justify-center w-16 h-16 bg-white font-bold text-black text-3xl rounded-md";
-
   if (guess) {
     return (
       <div id="past-row-container" className="flex flex-row gap-2">
@@ -23,7 +20,7 @@ export default function Row({ guess, currentGuess }: Props) {
             <div
               key={index}
               id="past-letter"
-              className={`${letterClasses} ${newBgColor}`}
+              className={`flex flex-row gap-2 items-center justify-center w-16 h-16 font-bold text-black text-3xl rounded-md ${newBgColor}`}
             >
               {letter.key}
             </div>
@@ -38,12 +35,20 @@ export default function Row({ guess, currentGuess }: Props) {
     return (
       <div id="current-row-container" className="flex flex-row gap-2">
         {letters.map((letter, index) => (
-          <div key={index} id="current-letter" className={`${letterClasses}`}>
+          <div
+            key={index}
+            id="current-letter"
+            className="flex flex-row gap-2 items-center justify-center w-16 h-16 font-bold text-black text-3xl rounded-md bg-white"
+          >
             {letter}
           </div>
         ))}
         {[...Array(5 - letters.length)].map((_, index) => (
-          <div key={index} id="empty-row" className={`${letterClasses}`}></div>
+          <div
+            key={index}
+            id="empty-row"
+            className="flex flex-row gap-2 items-center justify-center w-16 h-16 font-bold text-black text-3xl rounded-md bg-white"
+          ></div>
         ))}
       </div>
     );
@@ -52,11 +57,26 @@ export default function Row({ guess, currentGuess }: Props) {
   // return empty rows
   return (
     <div id="empty-row-container" className="flex flex-row gap-2">
-      <div id="empty-row" className={letterClasses}></div>
-      <div id="empty-row" className={letterClasses}></div>
-      <div id="empty-row" className={letterClasses}></div>
-      <div id="empty-row" className={letterClasses}></div>
-      <div id="empty-row" className={letterClasses}></div>
+      <div
+        id="empty-row"
+        className="flex flex-row gap-2 items-center justify-center w-16 h-16 font-bold text-black text-3xl rounded-md bg-white"
+      ></div>
+      <div
+        id="empty-row"
+        className="flex flex-row gap-2 items-center justify-center w-16 h-16 font-bold text-black text-3xl rounded-md bg-white"
+      ></div>
+      <div
+        id="empty-row"
+        className="flex flex-row gap-2 items-center justify-center w-16 h-16 font-bold text-black text-3xl rounded-md bg-white"
+      ></div>
+      <div
+        id="empty-row"
+        className="flex flex-row gap-2 items-center justify-center w-16 h-16 font-bold text-black text-3xl rounded-md bg-white"
+      ></div>
+      <div
+        id="empty-row"
+        className="flex flex-row gap-2 items-center justify-center w-16 h-16 font-bold text-black text-3xl rounded-md bg-white"
+      ></div>
     </div>
   );
 }
